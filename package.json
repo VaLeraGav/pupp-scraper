@@ -1,0 +1,22 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.11.0",
+    "pino": "^8.14.1",
+    "puppeteer": "^20.5.0",
+    "user-agents": "^0.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0"
+  }
+}
