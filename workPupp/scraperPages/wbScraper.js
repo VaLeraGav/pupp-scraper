@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import { createDir } from '../helper.js'
 import userAgent from 'user-agents'
 import logger from '../logger.js'
 
@@ -8,19 +9,12 @@ export default {
 
   // countPage: false, // включить бесконечный цикл
   countPage: false,
-  productDir: '../../products',
 
+  productDir: '../../products',
 
   async scraper(browser) {
 
-    // fsp.access(this.productDir, (err) => {
-    //   if (err && err.code === 'ENOENT') {
-    //     fsp.mkdir(this.productDir);
-    //   }
-    // })
-    if (fs.existsSync(this.productDir)) {
-      fs.mkdir(this.productDir);
-    }
+    await createDir(this.productDir)
 
     this.browser = browser
     let i = 1;
@@ -130,7 +124,7 @@ export default {
           Math.random().toString(36).substring(2, 15) +
           Math.random().toString(23).substring(2, 5);
 
-        fs.writeFile(
+        await fs.promises.writeFile(
           `${this.productDir}/wb-${ran}.json`,
           JSON.stringify(data),
           'utf8',

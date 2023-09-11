@@ -1,6 +1,6 @@
 
-import BrowserObject from './src/browser.js'
-import scraperController from './src/pageController.js'
+import BrowserObject from './workPupp/browser.js'
+import scraperController from './workPupp/pageController.js'
 
 let browserInstance = await BrowserObject.startBrowser();
 

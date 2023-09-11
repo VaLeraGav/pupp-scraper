@@ -1,14 +1,14 @@
+import { getDirName}from './helper.js';
 import pino from 'pino'
-import { fileURLToPath } from 'url';
 import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = getDirName(import.meta.url)
+const pathLogsDir = `${path.join(__dirname, '..')}/logs`
 
 const transport = pino.transport({
   target: 'pino/file',
   options: {
-    destination: `${path.join(__dirname, '..')}/logs/app.log`
+    destination: pathLogsDir
   },
 })
 
