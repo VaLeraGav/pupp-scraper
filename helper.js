@@ -7,6 +7,8 @@ export function getDirName(moduleUrl) {
   return path.dirname(__filename)
 }
 
+export const rootDir = getDirName(import.meta.url)
+
 export async function createDir(pathDir) {
   await fs.promises.access(pathDir).catch(async () =>
     await fs.promises.mkdir(pathDir, err => {

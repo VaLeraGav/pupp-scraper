@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { createDir } from '../helper.js'
+import { createDir, rootDir } from '../../helper.js'
 import userAgent from 'user-agents'
 import logger from '../logger.js'
 
@@ -10,11 +10,11 @@ export default {
   // countPage: false, // включить бесконечный цикл
   countPage: false,
 
-  productDir: '../../products',
+  productsDir: `${rootDir}/products`,
 
   async scraper(browser) {
 
-    await createDir(this.productDir)
+    await createDir(this.productsDir)
 
     this.browser = browser
     let i = 1;
@@ -42,7 +42,9 @@ export default {
 
     await page.waitForSelector('.catalog-page');
 
-    await this.scrapeCurrentPage(page);
+    await this.scrapeCurrentPage(page)
+
+    console.log(url + '\n')
   },
 
   async scrapeCurrentPage(page) {
@@ -112,6 +114,9 @@ export default {
 
         let data = {};
         data[product.nm_id] = {
+          nm_id: nm_id,
+          url_catalog: this.url,
+          url_basket: mainUrl,
           url_img: imageUrl,
           name: product.imt_name,
           subj_name: product.subj_name,
@@ -124,13 +129,13 @@ export default {
           Math.random().toString(36).substring(2, 15) +
           Math.random().toString(23).substring(2, 5);
 
-        await fs.promises.writeFile(
-          `${this.productDir}/wb-${ran}.json`,
+        fs.promises.writeFile(
+          `${this.productsDir}/wb-${ran}.json`,
           JSON.stringify(data),
           'utf8',
           (err) => {
             if (err) {
-              logger.error({ path: `products/wb-${ran}.json` }, 'write error');
+              logger.error({ path: `${this.productsDir}/wb-${ran}.json` }, 'write error');
             }
           }
         );

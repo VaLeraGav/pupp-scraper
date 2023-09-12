@@ -17,7 +17,7 @@ export default {
       console.log('Opening the browser......');
       browser = await puppeteer.launch({
         // executablePath: '/usr/bin/chromium-browser',
-        headless: false, // будет запускаться с интерфейсом
+        headless: true, // будет запускаться с интерфейсом
         args: ['--disable-setuid-sandbox', '--no-sandbox', '--disable-gpu'],
         ignoreHTTPSErrors: true,
         // позволяет вам посещать веб-сайты, доступ к которым осуществляется
