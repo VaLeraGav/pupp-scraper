@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "db:init": "./node_modules/.bin/ts-node ./workDb/init.ts",
+    "db:init": "ts-node ./workDb/init.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "typeorm migration:generate -d ./workDb/dataSource.ts -- -n",
-    "migration:up": "typeorm migration:run -d ./workDb/dataSource.ts",
-    "migration:down": "typeorm migration:revert -d ./workDb/dataSource.ts",
+    "migration:generate": "typeorm migration:generate -d ./workDb/dataSource.js -- -n",
+    "migration:up": "typeorm migration:run -d ./workDb/dataSource.js",
+    "migration:down": "typeorm migration:revert -d ./workDb/dataSource.js",
     "migrate:create": "typeorm migration:create ./workDb/migration/%NAME%"
   },
   "type": "module",

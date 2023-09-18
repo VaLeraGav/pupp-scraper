@@ -1,8 +1,6 @@
+import { AppDataSource } from "./dataSource.js"
 
-import { DataSource } from "typeorm"
-import { AppDataSource } from "./dataSource"
-
-export const getDataSource = async (delay = 3000): Promise<DataSource> => {
+export const getDataSource = async (delay = 3000) => {
   // if (AppDataSourceTest.isInitialized) return Promise.resolve(AppDataSourceTest);
 
   // return new Promise((resolve, reject) => {
