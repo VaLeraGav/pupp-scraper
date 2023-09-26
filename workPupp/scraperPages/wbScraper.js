@@ -130,7 +130,7 @@ export default {
           Math.random().toString(23).substring(2, 5);
 
         fs.promises.writeFile(
-          `${this.productsDir}/wb-${ran}.json`,
+          `${this.productsDir}/wb-id-${ran}.json`,
           JSON.stringify(data),
           'utf8',
           (err) => {

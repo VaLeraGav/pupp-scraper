@@ -2,31 +2,20 @@
   "name": "new",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "db:init": "ts-node ./workDb/init.ts",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "typeorm migration:generate -d ./workDb/dataSource.js -- -n",
-    "migration:up": "typeorm migration:run -d ./workDb/dataSource.js",
-    "migration:down": "typeorm migration:revert -d ./workDb/dataSource.js",
-    "migrate:create": "typeorm migration:create ./workDb/migration/%NAME%"
+    "start": "node index.js"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "node": "^20.6.0",
     "pg": "^8.11.3",
     "pino": "^8.14.1",
     "puppeteer": "^20.5.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.17",
     "user-agents": "^0.0.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20.6.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
   }
 }

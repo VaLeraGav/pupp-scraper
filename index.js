@@ -1,4 +1,3 @@
-
 import BrowserObject from './workPupp/browser.js'
 import scraperController from './workPupp/pageController.js'
 

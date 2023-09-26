@@ -3,7 +3,9 @@ import { createDir, rootDir } from '../../helper.js'
 
 export default {
 
-  url: 'https://www.wildberries.ru/webapi/menu/main-menu-ru-ru.json',
+  // url: 'https://www.wildberries.ru/webapi/menu/main-menu-ru-ru.json',
+  url: 'https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json',
+
 
   tmpDir: `${rootDir}/tmp`,
 

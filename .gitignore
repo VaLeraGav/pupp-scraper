@@ -1,8 +1,11 @@
 .idea/
+.env
 vendor/
 node_modules/
 products/
 catalogs/
-test.js
 logs/
+tmp*/
+tmp/
+test.js
 package-lock.json
