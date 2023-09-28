@@ -1,4 +1,4 @@
-import { getDirName, createDir }from '../helper.js';
+import { getDirName, createDir }from './helper.js';
 import pino from 'pino'
 import path from 'path';
 

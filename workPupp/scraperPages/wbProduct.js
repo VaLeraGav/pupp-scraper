@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { createDir, rootDir } from '../../helper.js'
 import userAgent from 'user-agents'
-import logger from '../logger.js'
+import logger from '../../logger.js'
 
 export default {
 

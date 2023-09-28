@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node index.js"
+    "pupp:wb-catalog": "cross-env NAME_SCRAPER=wbCatalog node index.js",
+    "pupp:wb-product": "cross-env NAME_SCRAPER=wbProduct node index.js",
+    "db:start": "cross-env NAME_SCRAPER=wbCatalog node ./workDb/app.js",
+    "db:wb-product": "cross-env NAME_SCRAPER=wbCatalog node ./workDb/app.js"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "node": "^20.6.0",
     "pg": "^8.11.3",

@@ -6,8 +6,7 @@ export default {
   // url: 'https://www.wildberries.ru/webapi/menu/main-menu-ru-ru.json',
   url: 'https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json',
 
-
-  tmpDir: `${rootDir}/tmp`,
+  tmpDir: `${rootDir}/catalogs`,
 
   async scraper(browser) {
 
@@ -66,7 +65,7 @@ export default {
       }
     });
 
-    fs.promises.writeFile(`${this.tmpDir}/flat-catalog..json`, JSON.stringify(dataCatalog), function (err) {
+    fs.promises.writeFile(`${this.tmpDir}/rebuilt-catalog.json`, JSON.stringify(dataCatalog), function (err) {
       if (err) {
         return console.log(err);
       }

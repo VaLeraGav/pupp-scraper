@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../sequelize.js'
 
-const Product = sequelize.define('products',
+const Products = sequelize.define('products',
   {
     id: {
       primaryKey: true,
@@ -19,4 +19,4 @@ const Product = sequelize.define('products',
   }
 )
 
-export default Product
+export default Products

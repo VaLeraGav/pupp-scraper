@@ -1,13 +1,10 @@
-import pageScraper from './pageScraper.js'
-import logger from './logger.js'
-import wbScraper from './scraperPages/wbScraper.js'
-import wbCatalog from './scraperPages/wbCatalog.js'
+import logger from '../logger.js'
 
-export default async function scrapeAll(browserInstance) {
+export default async function scraperController(browserInstance, nameScraper) {
   let browser;
   try {
     browser = await browserInstance;
-    await wbCatalog.scraper(browser);
+    await nameScraper.scraper(browser);
     await browser.close();
 
   } catch (err) {

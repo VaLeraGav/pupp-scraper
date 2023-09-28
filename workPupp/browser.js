@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-import logger from './logger.js'
+import logger from '../logger.js'
 
 export default {
 

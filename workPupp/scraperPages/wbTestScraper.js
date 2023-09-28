@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import userAgent from 'user-agents'
-import logger from '../logger.js'
+import logger from '../../logger.js'
 
 // export default {
 //   async scraper(browser) {
