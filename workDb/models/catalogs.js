@@ -30,9 +30,9 @@ const Catalog = sequelize.define('catalogs',
       allowNull: true,
     },
   },
-  // {
-  //   timestamps: true
-  // }
+  {
+    timestamps: true
+  }
 )
 
 export default Catalog

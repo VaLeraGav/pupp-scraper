@@ -33,31 +33,28 @@ try {
 // await productBuild.save();
 // await Products.create({ name: 'Jane' })
 
-function getArrayCatalog(objCatalogList) {
-  let catalogBuild = []
-  for (let key in objCatalogList) {
-    const obj = objCatalogList[key]
-    catalogBuild.push({
-      wb_id:obj.id,
-      parent_id:obj.parent,
-      url:obj.url,
-      name:obj.name,
-      sheet:obj.sheet,
-    });
+function getObjProduct(objCatalogList) {
+  const product = objCatalogList[Object.keys(objCatalogList)]
+  return {
+    wb_id: product.nm_id,
+    catalog_id: 1,
+    name: product.name,
+    url_img: product.url_img,
+    description: product.description,
+    property: product.property,
   }
-  return catalogBuild
 }
-// https://stackoverflow.com/questions/60705929/insert-and-get-json-data-in-sequelize-and-postgres
+
 function getArrayCatalog(objCatalogList) {
   let catalogBuild = []
   for (let key in objCatalogList) {
     const obj = objCatalogList[key]
     catalogBuild.push({
-      wb_id:obj.id,
-      parent_id:obj.parent,
-      url:obj.url,
-      name:obj.name,
-      sheet:obj.sheet,
+      wb_id: obj.id,
+      parent_id: obj.parent,
+      url: obj.url,
+      name: obj.name,
+      sheet: obj.sheet,
     });
   }
   return catalogBuild
@@ -88,4 +85,38 @@ async function main() {
   }
 }
 
-main();
+// main();
+
+async function main1() {
+  const pathCatalogJson = rootDir + '/products/'
+  const filesList = fs.readdirSync(pathCatalogJson);
+
+  for (var i in filesList) {
+    const objCatalogList = getObj(pathCatalogJson + filesList[i]);
+    const catalogBuild = getObjProduct(objCatalogList)
+
+    const product = await Products.create(catalogBuild)
+    await product.save()
+  }
+}
+
+// (async function test() {
+//   const catalogBuild = {
+//     wb_id: 150372322,
+//     catalog_id: 1,
+//     name: 'Полка /  Витрина настенная №1-3А с подсветкой',
+//     url_img: 'https://basket-10.wb.ru/vol1503/part150372/150372322/images/big/1.jpg',
+//     description: 'fghjdjfhjdfdfj',
+//   }
+//   const product = await Products.create(catalogBuild)
+//   await product.save()
+// })();
+
+
+main1()
+
+// try {
+// } catch (error) {
+// } finally {
+  // await sequelize.close();
+// }
