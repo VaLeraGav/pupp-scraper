@@ -11,10 +11,15 @@ export const rootDir = getDirName(import.meta.url)
 
 export async function createDir(pathDir) {
   await fs.promises.access(pathDir).catch(async () =>
-    await fs.promises.mkdir(pathDir, err => {
+    await fs.promises.mkdir(pathDir, { recursive: true }, err => {
       if (err) {
         new SyntaxError(`failed to create folder: ${pathDir}`)
       };
     })
   )
+}
+
+export function getObj(pathJson) {
+  const strList = fs.readFileSync(pathJson, 'utf8')
+  return JSON.parse(strList);
 }

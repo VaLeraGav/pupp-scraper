@@ -1,7 +1,7 @@
 import BrowserObject from './workPupp/browser.js'
 import scraperController from './workPupp/scraperController.js'
-import wbProduct from './workPupp/scraperPages/wbProduct.js'
-import wbCatalog from './workPupp/scraperPages/wbCatalog.js'
+import wbProduct from 'scraperPages/wbProduct.js'
+import wbCatalog from 'scraperPages/wbCatalog.js'
 
 const scraperList = {
   'wbCatalog': wbCatalog,

@@ -1,17 +1,8 @@
 
-import Sequilize from 'sequelize'
+import envConfigs from './config/config.js'
+import Sequelize from 'sequelize'
 
-const config = {
-  host: 'localhost',
-  dialect: 'postgres',
-  operatorsAliases: 0,
-  logging: false,
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 3000,
-    idle: 10000
-  }
-}
+const env = process.env.NODE_ENV || 'development';
+const config = envConfigs[env];
 
-export default new Sequilize('postgres', 'valera', '6579', config)
+export default new Sequelize(config.database, config.username, config.password, config);

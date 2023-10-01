@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 export default {
-  'config': resolve('workDb', 'config', 'config.json'),
+  'config': resolve('workDb', 'config', 'config.js'),
   'models-path': resolve('workDb', 'models'),
   'seeders-path': resolve('workDb', 'seeders'),
   'migrations-path': resolve('workDb', 'migrations')
