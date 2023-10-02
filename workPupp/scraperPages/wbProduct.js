@@ -5,14 +5,13 @@ import logger from '../../logger.js'
 
 export default {
 
-  url: 'https://www.wildberries.ru/catalog/dom/mebel/torgovaya-mebel',
-
   // countPage: false, // включить бесконечный цикл
   countPage: false,
 
   productsDir: `${rootDir}/products`,
 
-  async scraper(browser) {
+  async scraper(browser, url) {
+    this.url = url
 
     await createDir(this.productsDir)
 
@@ -43,8 +42,6 @@ export default {
     await page.waitForSelector('.catalog-page');
 
     await this.scrapeCurrentPage(page)
-
-    console.log(url + '\n')
   },
 
   async scrapeCurrentPage(page) {

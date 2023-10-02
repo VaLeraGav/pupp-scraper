@@ -1,10 +1,10 @@
 import logger from '../logger.js'
 
-export default async function scraperController(browserInstance, nameScraper) {
+export default async function scraperController(browserInstance, nameScraper, url) {
   let browser;
   try {
     browser = await browserInstance;
-    await nameScraper.scraper(browser);
+    await nameScraper.scraper(browser, url);
     await browser.close();
 
   } catch (err) {

@@ -11,9 +11,14 @@ try {
   logger.error({ error: err }, 'Unable to connect to the database');
 }
 
+const serviceList = {
+  'wbCatalog': CatalogServices,
+  'wbProduct': ProductServices,
+}
+
 try {
-  CatalogServices()
+  const nameScrapper = process.env.NAME_SCRAPER
+  serviceList[nameScrapper]()
 } catch (e) {
-  console.log('db error:', e)
   logger.error({ error: err }, 'db error');
 }

@@ -1,9 +1,7 @@
-import { getDirName, createDir }from './helper.js';
+import { getDirName, createDir, rootDir }from './helper.js';
 import pino from 'pino'
-import path from 'path';
 
-const __dirname = getDirName(import.meta.url)
-const pathLogsDir = `${path.join(__dirname, '..')}/logs`
+const pathLogsDir = `${rootDir}/logs`
 await createDir(pathLogsDir)
 
 const transport = pino.transport({

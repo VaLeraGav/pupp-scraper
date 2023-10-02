@@ -5,8 +5,8 @@
   "scripts": {
     "pupp:wb-catalog": "cross-env NAME_SCRAPER=wbCatalog node index.js",
     "pupp:wb-product": "cross-env NAME_SCRAPER=wbProduct node index.js",
-    "db:start": "cross-env NAME_SCRAPER=wbCatalog node ./workDb/app.js",
-    "db:wb-product": "cross-env NAME_SCRAPER=wbCatalog node ./workDb/app.js"
+    "db:wb-catalog": "cross-env NAME_SCRAPER=wbCatalog node ./workDb/app.js",
+    "db:wb-product": "cross-env NAME_SCRAPER=wbProduct node ./workDb/app.js"
   },
   "type": "module",
   "keywords": [],

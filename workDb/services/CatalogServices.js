@@ -3,6 +3,9 @@ import Catalogs from '../models/catalogs.js'
 
 function getArrayCatalog(objCatalogList) {
   let catalogBuild = []
+  if (!objCatalogList) {
+    return catalogBuild
+  }
   for (let key in objCatalogList) {
     const obj = objCatalogList[key]
     catalogBuild.push({
@@ -22,14 +25,17 @@ export default async function CatalogServices() {
   try {
     const objCatalogList = getObj(pathCatalogJson);
 
+    console.log(objCatalogList)
+
     if (!objCatalogList) {
       throw new SyntaxError('objCatalogList: empty'); // (*)
     }
 
     const catalogBuild = getArrayCatalog(objCatalogList)
-
-    //  заполнение
-    await Catalogs.bulkCreate(catalogBuild)
+    if (catalogBuild) {
+      //  заполнение
+      await Catalogs.bulkCreate(catalogBuild)
+    }
 
   } catch (err) {
     throw err

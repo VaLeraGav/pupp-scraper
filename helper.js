@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'url';
 import * as fs from 'fs';
 import path from 'path';
+import logger from './logger.js'
 
 export function getDirName(moduleUrl) {
   const __filename = fileURLToPath(moduleUrl)
@@ -21,5 +22,11 @@ export async function createDir(pathDir) {
 
 export function getObj(pathJson) {
   const strList = fs.readFileSync(pathJson, 'utf8')
-  return JSON.parse(strList);
+  try {
+    return JSON.parse(strList);
+  } catch (error) {
+    if (error) {
+      logger.error({ path:pathJson }, 'getObj');
+    }
+  }
 }
